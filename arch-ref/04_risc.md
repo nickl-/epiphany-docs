@@ -1,4 +1,5 @@
-Epiphany Processor Node Architecture
+
+Chapter 4: Processor
 ==========================================================================
 
 ## Processor Node Overview
@@ -698,10 +699,6 @@ _1D_DESCR;
 
 ```
 
-
-----
-Copyright 2008-2016 Adapteva Inc. All rights reserved.
-(See LICENSE.md for details)
-
+\newpage
 
 

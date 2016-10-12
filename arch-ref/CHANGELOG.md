@@ -20,9 +20,8 @@ Reference Manual Changes ("CHANGELOG")
 |            | Changed naming version scheme                     |
 | 14.03.11   | Clarified which features are “LABS” features      |
 
-----
-Copyright 2008-2016 Adapteva Inc. All rights reserved.
-(See LICENSE.md for details)
+\newpage
+
 
 
 

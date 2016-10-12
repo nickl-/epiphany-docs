@@ -1,4 +1,4 @@
-Epiphany Opcodes
+Appendix C: Epiphany ISA Opcodes
 ============================================================================
 
 * I = immediate, MSB denoted by I#, LSBs by simple I (example I3III)

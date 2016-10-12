@@ -1,7 +1,8 @@
-Network-On-Chip ("eMesh")
+
+Chapter 3: Network-On-Chip
 ===========================================================================
 
-**Figure 3.1:** eMesh Overview
+**Figure 3.1:** eMesh Network-On-Chip Overview
 
 ## Network Topology
 
@@ -19,8 +20,7 @@ Figure 2 shows a connection diagram of the three mesh networks. The example show
 
 **Figure 3.2:** eMesh Network Topology
 
-
-Key features of the eMesh NOC includes:
+**Key features of the eMesh NOC includes:**
 
 * Optimization of Write Transactions over Read Transactions. Writes are approximately 16x more efficient than reads for on-chip transactions. Programs should use the high write-transaction bandwidth and minimize inter-node, on-chip read transactions.
 
@@ -47,7 +47,6 @@ Table 1 summarizes the routing rules for the combinations of mesh-node IDs and t
 | COL_ADDR == COL_NODE  | ROW_ADDR < ROW_NODE  | North
 | COL_ADDR == COL_NODE  | ROW_ADDR > ROW_NODE  | South
 | COL_ADDR == COL_NODE  | ROW_ADDR == ROW_NODE | Into mesh node
-
 
 ## Arbitration Scheme
 
@@ -78,10 +77,4 @@ The source address is sent along with the read transaction on the outgoing read 
 
 The code example shows that Epiphany is a true shared memory architecture. In the example, a dot-product routine writes its result to a memory location in another mesh node. The only thing required to pass data from one node to another is the setting of a pointer. The hardware decodes the transaction and determines whether it belongs to the local node’s memory or to another node’s memory. 
 
-----
-Copyright 2008-2016 Adapteva Inc. All rights reserved.
-(See LICENSE.md for details)
-
-
-
-
+\newpage

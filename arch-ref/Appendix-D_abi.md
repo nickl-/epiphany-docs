@@ -1,4 +1,4 @@
-Epiphany Application Binary interface (EABI)
+Appendix D: Epiphany Application Binary interface (EABI)
 ============================================================================
 
 This chapter is intended for library developers and users who develop custom assembly routines that can be called from the Epiphany C-compiler. The Epiphany ABI (EABI) is an agreement between developers that ensures interoperability between different libraries. The EABI defines a common procedure call standard and restrictions on data types and alignment.
@@ -110,8 +110,7 @@ The manner in which a result is returned from a procedure is determined by the t
 * A Composite Type not larger than 4 bytes is returned in r0. The format is as if the result had been stored in memory at a word-aligned address and then loaded into r0 with an LDR instruction. Any bits in r0 that lie outside the bounds of the result have unspecified values.
 * A Composite Type larger than 4 bytes, or whose size cannot be determined statically by both caller and callee, is stored in memory at an address passed as an extra argument when the function was called. 
 
-----
-Copyright 2008-2016 Adapteva Inc. All rights reserved.
-(See LICENSE.md for details)
+\newpage
+
 
 

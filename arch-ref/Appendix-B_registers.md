@@ -1,4 +1,4 @@
-Epiphany Registers
+Appendix B: Register Listing
 ===============================
 
 ## Register Summary

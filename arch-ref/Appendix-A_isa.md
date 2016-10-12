@@ -1,4 +1,4 @@
-Epiphany Instruction Set Architecture
+Appendix A: Epiphany Instruction Set Architecture
 ==============================================================================
 
 **Table 5.1:** Instruction Set Assembly Syntax
@@ -1699,7 +1699,5 @@ WAND;
 IDLE; /*wait for every core in the group to execute WAND*/
 ```
 
-----
-Copyright 2008-2016 Adapteva Inc. All rights reserved.
-(See LICENSE.md for details)
+\newpage
 
