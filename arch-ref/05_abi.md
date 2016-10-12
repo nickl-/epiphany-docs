@@ -1,4 +1,4 @@
-Epiphany Application Binary interface
+Epiphany Application Binary interface (EABI)
 ============================================================================
 
 This chapter is intended for library developers and users who develop custom assembly routines that can be called from the Epiphany C-compiler. The Epiphany ABI (EABI) is an agreement between developers that ensures interoperability between different libraries. The EABI defines a common procedure call standard and restrictions on data types and alignment.
@@ -53,7 +53,7 @@ An array is a repeated sequence of some other type (its base type). The alignmen
 ## Procedure Call Standard
 The Epiphany architecture includes 64 general word length purpose register. Table 8.2 below shows the register usage convention in the EABI. The register usage convention acts as a contract to guarantee that a caller and callee function can work together with predictable results. The EABI has 10 callee saved registers and 52 caller saved registers.
 
-The first four registers R0-R3 (A1-A4) are used to pass argument values into a subroutine and to return a result value from a function. They may also be used to hold intermediate values within a routine (but, in general, only between subroutine calls). Typically, the registers R4-R11, R14-R15, and R32-R43 are used to hold the values of a routine’s local variables. A subroutine must preserve the contents of the registers R4-R11 and R14-R15.
+The first four registers R0-R3 (A1-A4) are used to pass argument values into a subroutine and to return a result value from a function. They may also be used to hold intermediate values within a routine (but, in general, only between subroutine calls). Typically, the registers R4-R11and R14-R15 are used to hold the values of a routine’s local variables. A subroutine must preserve the contents of the registers R4-R11 and R14-R15.
 
 Fundamental types larger than 32 bits may be passed as parameters to, or returned as the result of, function calls. A double-word sized type is passed in two consecutive registers (e.g., R0 and R1, or R2 and R3).
 

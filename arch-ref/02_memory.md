@@ -2,7 +2,7 @@ Memory Architecture
 ============================================================================
 ## Memory Address Map
 
-The Epiphany architecture uses a single, flat address space consisting of $2^{32}$ 8-bit bytes. Byte addresses are treated as unsigned numbers, running from 0 to $2^{32} - 1$. This address space is regarded as consisting of $2^{30}$ 32-bit words, each of whose addresses is word-aligned, which means that the address is divisible by 4. The word whose word-aligned address is A consists of the four bytes with addresses A, A+1, A+2 and A+3. Each mesh node has a local, aliased, range of memory that is accessible by the mesh node itself starting at address 0x0 and ending at address 0x00007FFF. Each mesh node also has a globally addressable ID that allows communication with all other mesh nodes in the system. The mesh-node ID consists of 6 row-ID bits and 6 column-ID bits situated at the upper most-significant bits (MSBs) of the address space. The complete memory map for the 32 bit Epiphany architecture is shown in Figure 1.
+The Epiphany architecture uses a single, flat address space consisting of $2^{32}$ 8-bit bytes. Byte addresses are treated as unsigned numbers, running from 0 to $2^{32} - 1$. This address space is regarded as consisting of $2^{30}$ 32-bit words, each of whose addresses is word-aligned, which means that the address is divisible by 4. The word whose word-aligned address is A consists of the four bytes with addresses A, A+1, A+2 and A+3. Each mesh node has a local, aliased, range of memory that is accessible by the mesh node itself starting at address 0x0 and ending at address 0x000FFFFF. Each mesh node also has a globally addressable ID that allows communication with all other mesh nodes in the system. The mesh-node ID consists of 6 row-ID bits and 6 column-ID bits situated at the upper most-significant bits (MSBs) of the address space. The complete memory map for the 32 bit Epiphany architecture is shown in Figure 1.
 
 
 **Figure 2.1:** Epiphany Global Address Map
@@ -32,18 +32,16 @@ Table 1 shows the ordering guaranteed in the Epiphany architecture. Instruction 
 
 **Table 2.1:** Memory Transaction Ordering Rule
 
-| First Transaction  | Second Transaction | Memory Ordered         |
-| -------------------|--------------------|------------------------|
-| Local access       | Local access       | Yes                    |
-| Read from core "A  | Read from core "A" | Yes                    |
-| Write to core "A"  | Write to core "A"  | Yes                    |
-| Read from core "A" | Write to core "A"  | Yes                    |
-| Read from core "A" | Read from core "B" | Yes                    |
-| Read from core "A" | Write to core "B"  | Yes                    |
-| Write to core "A"  | Read from core "A" | No                     |
-| Write to core "A"  | Write to core "B"  | No                     |
-| Write to core "A"  | Read from core "B" | No                     |
-
+| Transfer #1   | Transfer #2  | Deterministic |
+| --------------|--------------|---------------|
+| Read Core A   | Read Core A  | Yes           |
+| Read Core A   | Read Core B  | Yes           |
+| Read Core A   | Write Core A | Yes           |
+| Read Core A   | Write Core B | Yes           |
+| Write Core A  | Write Core A | Yes           |
+| Write Core A  | Write Core B | No            |
+| Write Core A  | Read Core A  | No            |
+| Write Core A  | Read Core B  | No            |
 
 ## Endianness
 
