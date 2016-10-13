@@ -2,7 +2,7 @@
 Appendix A: Instruction Set Architecture
 =================================================
 
-This appendix contains a table of all Epiphany ISA opcodes and descriptions of all instructions listed in alphabetical order. 
+This appendix contains a table of the Epiphany instruction set architecture (ISA) opcodes and descriptions of all instructions listed in alphabetical order.
 
 Table: Opcodes
 
@@ -30,11 +30,11 @@ Table: Opcodes
 | LSR       | 16 |     |     |     |     |     |RD2:0|RN2:0|S4:S2 |S1:00|0110|
 | LSL       | 16 |     |     |     |     |     |RD2:0|RN2:0|S4:S2 |S1:01|0110|
 | ASR       | 16 |     |     |     |     |     |RD2:0|RN2:0|S4:S2 |S1:00|1110|
-| BITR      | 16 |     |     |     |     |     |RD2:0|RN2:0|000   |  001|1110|
+| BITR      | 16 |     |     |     |     |     |RD2:0|RN2:0|RN2:0 |  001|1110|
 | LSR       | 32 |RD5:3|RN5:3|xxx  |xxx  |0110 |RD2:0|RN2:0|S4:S2 |S1:00|1111|
 | LSL       | 32 |RD5:3|RN5:3|xxx  |xxx  |0110 |RD2:0|RN2:0|S4:S2 |S1:01|1111|
 | ASR       | 32 |RD5:3|RN5:3|xxx  |xxx  |1110 |RD2:0|RN2:0|S4:S2 |S1:00|1111|
-| BITR      | 32 |RD5:3|RN5:3|xxx  |xxx  |1110 |RD2:0|RN2:0|000   |  001|1111|
+| BITR      | 32 |RD5:3|RN5:3|xxx  |xxx  |1110 |RD2:0|RN2:0|RN2:0 |  001|1111|
 |**REG-INT**|    |     |     |     |     |     |     |     |      |     |    |
 | ADD       | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |001  |1010|
 | SUB       | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |011  |1010|
@@ -51,16 +51,16 @@ Table: Opcodes
 | EOR       | 32 |RD5:3|RN5:3|RM5:3|x00  | 1010|RD2:0|RN2:0|RM2:0 |000  |1111|
 | ASR       | 32 |RD5:3|RN5:3|RM5:3|x00  | 1010|RD2:0|RN2:0|RM2:0 |110  |1111|
 | LSR       | 32 |RD5:3|RN5:3|RM5:3|x00  | 1010|RD2:0|RN2:0|RM2:0 |100  |1111|
-| LSL       | 32 |RD5:3|RN5:3|RM5:3|x00  | 1010|RD2:0|RN2:0|RM2:0 |010  |1111| 
+| LSL       | 32 |RD5:3|RN5:3|RM5:3|x00  | 1010|RD2:0|RN2:0|RM2:0 |010  |1111|
 |**FPU**    |    |     |     |     |     |     |     |     |      |     |    |
 | FADD      | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |000  |0111|
 | FSUB      | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |001  |0111|
 | FMUL      | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |010  |0111|
 | FMADD     | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |011  |0111|
 | FMSUB     | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |100  |0111|
-| FLOAT     | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |101  |0111|
-| FIX       | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |110  |0111|
-| FABS      | 16 |     |     |     |     |     |RD2:0|RN2:0|RM2:0 |111  |0111|
+| FLOAT     | 16 |     |     |     |     |     |RD2:0|RN2:0|RN2:0 |101  |0111|
+| FIX       | 16 |     |     |     |     |     |RD2:0|RN2:0|RN2:0 |110  |0111|
+| FABS      | 16 |     |     |     |     |     |RD2:0|RN2:0|RN2:0 |111  |0111|
 | FADD      | 32 |RD5:3|RN5:3|RM5:3|x00  | 0111|RD2:0|RN2:0|RM2:0 |000  |1111|
 | FSUB      | 32 |RD5:3|RN5:3|RM5:3|x00  | 0111|RD2:0|RN2:0|RM2:0 |001  |1111|
 | FMUL      | 32 |RD5:3|RN5:3|RM5:3|x00  | 0111|RD2:0|RN2:0|RM2:0 |010  |1111|
@@ -98,8 +98,8 @@ Table: Opcode Table Symbol Meanings
 
 | Symbol |Desription                                                     |
 |:------:|---------------------------------------------------------------|
-| I      | Immediate, MSB denoted by I#, LSBs by simple I (example I3III)| 
-| D      | Datasize[1:0]                                                 | 
+| I      | Immediate, MSB denoted by I#, LSBs by simple I (example I3III)|
+| D      | Datasize[1:0]                                                 |
 | B3:0   | Branch code                                                   |
 | S      | Store option                                                  |
 | M      | Minus (subtract) option                                       |
@@ -109,8 +109,6 @@ Table: Opcode Table Symbol Meanings
 | G      | MMR group                                                     |
 
 \newpage
-
-The following table describes the 
 
 Table: Instruction Set Assembly Syntax
 
@@ -139,8 +137,6 @@ Table: Instruction Set Assembly Syntax
 \newpage
 
 ## ADD ##
-
-**Description:**
 
 The ADD instruction adds an integer register value (RN) with a second integer operand  (RM or SIMM3 or SIMM11). The result is written to register RD.
 
@@ -186,7 +182,7 @@ The ADD instruction adds an integer register value (RN) with a second integer op
 
 ## AND ##
 
-**Description:** The AND instruction performs a logical “AND” between operand RN and operand RM and places the result in register RD.
+The AND instruction performs a logical “AND” between operand RN and operand RM and places the result in register RD.
 
 **Syntax:**
 ```
@@ -200,10 +196,10 @@ The ADD instruction adds an integer register value (RN) with a second integer op
 ```
 **Flags Updated:**
 ```
-	AN	Flag
-	AZ	Flag
-	AV	Flag
-	AC	Flag
+	AN
+	AZ
+	AV
+	AC
 ```
 
 **Operation:**
@@ -212,7 +208,7 @@ The ADD instruction adds an integer register value (RN) with a second integer op
 	AN = RD[31];
 	AV = 0;
 	AC = 0;
-	AZ = (RD[31:0] == 0);	
+	AZ = (RD[31:0] == 0);
 ```
 
 **Example:**
@@ -223,7 +219,6 @@ The ADD instruction adds an integer register value (RN) with a second integer op
 
 ## ASR ##
 
-**Description:**
 The ASR instruction performers an arithmetic shift right of the RN operand based on the unsigned 5 bit shift value in IMM5 or RM. The result is sign extended using bit RN[31] and placed in register RD.
 
 **Syntax:**
@@ -240,10 +235,10 @@ The ASR instruction performers an arithmetic shift right of the RN operand based
 ```
 **Flags Updated:**
 ```
-	AN	Flag
-	AZ	Flag
-	AV	Flag
-	AC	Flag
+	AN
+	AZ
+	AV
+	AC
 ```
 **Operation:**
 ```
@@ -251,12 +246,12 @@ The ASR instruction performers an arithmetic shift right of the RN operand based
 	AN = RD[31]
 	AV = 0
 	AC = 0
-	AZ = (RD[31:0] == 0);	
+	AZ = (RD[31:0] == 0);
 ```
 
 **Example:**
 ```
-	ASR R0,R1,R2     // R0 = R1 >>> R2 
+	ASR R0,R1,R2     // R0 = R1 >>> R2
 	ASR R0,R1,#4     // R0 = R1 >>> 4
 ```
 
@@ -264,8 +259,7 @@ The ASR instruction performers an arithmetic shift right of the RN operand based
 
 ## BCOND ##
 
-**Description:**
-The branch instruction causes a branch to a target address based on the evaluation of one of 16 condition codes. The instruction allows conditional and unconditional branching forwards and backwards relative to the current value of the program counter. All branches are relative with respect to the current program counter. Valid condition codes include EQ, NE, GT, GTEU, LTEU, LTU, GT, GTE, LT, LTE, BEQ, BNE, BLT, BLTE, L, "empty" : 
+The branch instruction causes a branch to a target address based on the evaluation of one of 16 condition codes. The instruction allows conditional and unconditional branching forwards and backwards relative to the current value of the program counter. All branches are relative with respect to the current program counter. Valid condition codes include EQ, NE, GT, GTEU, LTEU, LTU, GT, GTE, LT, LTE, BEQ, BNE, BLT, BLTE, L, "empty" :
 
 **Syntax:**
 ```
@@ -276,9 +270,9 @@ The branch instruction causes a branch to a target address based on the evaluati
 **Operands:**
 ```
 	COND: One of 15 conditions to evaluate before performing the jump(branch).
-	SIMM8: Signed 8 bit immediate value to add to current PC. 
+	SIMM8: Signed 8 bit immediate value to add to current PC.
 	SIMM24: Signed 24 bit immediate value to add to current PC.
-```	
+```
 
 **Flags Updated:**
 ```
@@ -304,302 +298,361 @@ loop:	FADD R3,R2,R1 // some operation
 
 ## BL ##
 
-**Description:**
-The branch instruction causes the upcoming PC to be saved in the LR register followed by a branch to a target. The branch is relative with respect to the current 	program counter.
+The branch instruction causes the upcoming PC to be saved in the LR register followed by a branch to a target. The branch is relative with respect to the current program counter.
 
 **Syntax:**
-* BL SIMM8
-* BL SIMM24
+```
+	BL SIMM8
+	BL SIMM24
+```
 
 **Operands:**
-* SIMM8: Signed 8 bit immediate value to add to current PC. The value is left shifted by 1 bit before being added to the PC.  
-* SIMM24: Signed 24 bit immediate value to add to current PC. The value is left shifted by 1 bit before being added to the PC.
+```
+	SIMM8: Signed 8 bit immediate value to add to current PC.
+	SIMM24: Signed 24 bit immediate value to add to current PC.
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-LR=next PC;
-PC = PC +(SignExtend(SIMM) <<1)
+	LR=next PC;
+	PC = PC +(SignExtend(SIMM) <<1)
 ```
 
 **Example:**
 ```
-BL _MY_FUNC  ; save PC to LR and jump to _MY_FUNC
-
+	BL MY_FUNC  // save PC to LR register and jump to MY_FUNC address
 ```
+
 \newpage
 
 ## BITR ##
 
-**Description:**
 The BITR instruction reverses the order of the bits in the operand RN, the LSB becomes the MSB and the MSB becomes the LSB, etc. and places the result in register RD.
 
 **Syntax:**
-* BITR  RD, RN
+```
+	BITR  RD, RN
+```
 
 **Operands:**
-* RD:	Destination register
-* RN:	First operand register
+```
+	RD:	Destination register
+	RN:	First operand register
+```
 
 **Flags Updated:**
-* AN	Flag
-* AZ 	Flag
-* AV 	Flag
-* AC 	Flag
-
+```
+	AN
+	AZ
+	AV
+	AC
+```
 **Operation:**
 ```
-for(i=0;i<32;i=i+1){
-	RD[i]=RN[31-i];
-}
-if (RD[31:0]==0) { AZ=1 } else { AZ=0}	
-AN 	= RD[31]
-AV 	= 0
-AC   = 0
+	for(i=0;i<32;i=i+1){
+		RD[i]=RN[31-i];
+	}
+	AZ = (RD[31:0] == 0)
+	AN = RD[31]
+	AV = 0
+	AC = 0
 ```
 
 **Example:**
 ```
-MOV 	R0,%low(x87654321)	;
-MOVT	R0,%high(x87654321)	;
-BITR R0,R0 			        ;R0 gets 0x84C2A6B1
-````
+	MOV 	R0,%low(0xx87654321)	// set register value
+	MOVT	R0,%high(0xx87654321)	//
+	BITR    R1,R0 			        // R1 gets 0x84C2A6B1
+```
 
 \newpage
 
 ## BKPT
 
-**Description:**
-The BKPT instruction causes the processor to halt and wait for external inputs. The instruction is only be used by the debugging tools such as GDB and should not be user software. The instruction is included here only for the purpose of reference.
+The BKPT instruction causes the processor to halt and wait for external inputs. Processor operation is resumed by writing to the DEBUGCMD register. 
 
 **Syntax:**
-* BKPT
-
-\newpage
-
-## EOR ##
-
-**Description:**
-The EOR instruction logically XORs the operand in register RN with the operand in register RM and places the result in register RD.
-
-**Syntax:**
-* EOR RD, RN, RM
-
+```
+	BKPT
+```
 **Operands:**
-* RD:	Destination register 
-* RN:	First operand register
-* RM:	Second operand register
-
+```
+	None
+```
 **Flags Updated:**
-* AN	Flag
-* AZ 	Flag
-* AV 	Flag
-* AC 	Flag
+```
+	None
+```
 
 **Operation:**
 ```
-RD 	= RN ^ RM
-AN 	= RD[31]
-AV 	= 0
-AC   = 0
-if (RD[31:0]==0) { AZ=1 } else { AZ=0}
+	PC=PC
+	DEBUGSTATUS=halted	
 ```
 
 **Example:**
 ```
-EOR R2,R0,R1	;
+	ADD R0,R1,R2   // regular instruction
+	BKPT           // breakpoint instruction 
+```
+
+
+\newpage
+
+## EOR ##
+The EOR instruction logically XORs the operand in register RN with the operand in register RM and places the result in register RD.
+
+**Syntax:**
+```
+	EOR RD, RN, RM
+```
+
+**Operands:**
+```
+	RD:	Destination register
+	RN:	First operand register
+	RM:	Second operand register
+```
+
+**Flags Updated:**
+```
+	AN
+	AZ
+	AV
+	AC
+```
+
+**Operation:**
+```
+	RD 	= RN ^ RM
+	AN 	= RD[31]
+	AV 	= 0
+	AC  = 0
+	AZ  = (RD[31:0] == 0)
+```
+
+**Example:**
+```
+	EOR R2,R0,R1	// R2 = R0 ^ R1
 ```
 
 \newpage
 
 ## FABS ##
 
-**Description:**
-The FABS instruction calculates the absolute value of a floating-point value in register value RN and and places the result in register RD. The operation updates the floating-point arithmetic flags.
+The FABS instruction finds the absolute value of a floating-point value in register value RN and and places the result in register RD. The operation updates the floating-point arithmetic flags.
 
 **Syntax:**
-* FABS RD, RN
+```
+	FABS RD, RN
+```
 
-**Syntax:**
-* RD			Destination register
-* RN			First operand register
+**Opreands:**
+```
+	RD			Destination register
+	RN			First operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS 	Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD = abs(RN)
-			N = RD[31]
-			if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-			if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-			if (UnbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-			if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-			BVS = BVS | BV;
+	RD  = abs(RN)
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
+
 **Example:**
 ```
-FABS R2,R1;
+	FABS R2,R1   // R2 = abs(R1)
 ```
 
 \newpage
 
 ## FADD ##
 
-**Description:**
 The FADD instruction adds two 32-bit floating-point operands together and places the result in a third register. The operation updates the floating point arithmetic flags.
 
 **Syntax:**
-* FADD RD, RN, RM
-
+```
+	FADD RD, RN, RM
+```
 **Operands:**
-* RD	Destination register
-* RN	First operand register
-* RM	Second operand register
-
+```
+	RD	Destination register
+	RN	First operand register
+	RM	Second operand register
+```
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS 	Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD=RN + RM
-BN = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-if (UnbiasedExponent(RD) > 127) {B OV=1 } else { BV=0}
-if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-BVS = BVS | BV;
+	RD  = RN + RM
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
 **Example:**
 ```
-FADD R2,R2,R0;
+	FADD R2,R1,R0    // R2 = R1 + R0
 ```
 
 \newpage
 
 ## FIX ##
 
-**Description:**
-These FIX instruction converts the floating-point RN operand to a 32-bit fixed-point signed integer result. The floating-point operand is rounded or truncated. The result is placed in register RD. A NAN input returns a floating-point all ones result. All underflow results, or input which are zero or denormal, return zero. Overflow result always returns a signed saturated result: 0x7FFFFFFF for positive, and 0x80000000 for negative.
+These FIX instruction converts the floating-point RN operand to a 32-bit signed integer result. The floating-point operand is rounded or truncated. The result is placed in register RD. A NAN input returns a floating-point all ones result. All underflow results, or input which are zero or denormal, return zero. Overflow result always returns a signed saturated result: 0x7FFFFFFF for positive, and 0x80000000 for negative.
 
 **Syntax:**
-* FIX RD, RN
+```
+	FIX RD, RN
+```
 
 **Operands:**
-* RD	Result register for converted fixed point result
-* RN	Floating-point operand register to convert.
-
+```
+	RD	Integer result register
+	RN	Floating-point input operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS 	Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD = fix(RN)
-N = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-BVS = BVS | BV;
+	RD  = fix(RN)
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
+
 **Example:**
 ```
-FIX R2,R1;
+	FIX R2,R1   // R2 = fix(R1)
 ```
 
 \newpage
 
 ## FLOAT ##
 
-**Description:**
 The FLOAT instructions convert the fixed-point operand in RN to a floating-point result. The final result is placed in register RD. Rounding is to nearest (IEEE) or by truncation, to a 32-bit boundary, as defined by the rounding mode. Overflow returns ±infinity (round-to-nearest),underflow returns ±zero.
 
 **Syntax:**
-* FLOAT RD, RN
+```
+	FLOAT RD, RN
+```
 
 **Operands:**
-* RD	Result register for converted fixed point result
-* RN	Floating-point operand register to convert.
-
+```
+	RD	Floating point result register
+	RN	Integer input operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS 	Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD = float(RN)
-N = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-BVS = BVS | BV;
+	RD  = float(RN)
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
+
 **Example:**
 ```
-FLOAT R2,R1;
+	FLOAT R2,R1   // R2 = float (R1)
 ```
 
 \newpage
 
 ## FMADD ##
 
-**Description:**
-The FMADD instruction multiplies one floating-point register value (RM) with a second 	floating-point register value (RN), adds the result to a third register(RD) and writes and places the result in register RD. The operation updates the floating-point arithmetic flags.
+The FMADD instruction multiplies one floating-point register value (RM) with a second floating-point register value (RN), adds the result to a third register(RD) and places the result in register RD. The operation updates the floating-point arithmetic flags.
 
 **Syntax:**
-* FMADD RD, RN, RM;
+```
+	FMADD RD, RN, RM
+```
 
 **Operands:**
-* RD:	Accumulation register for fused multiply add instruction
-* RN:	First operand register
-* RM:	Second operand register
-
+```
+	RD:	Accumulation register for fused multiply add instruction (input/output) 
+	RN:	First operand register
+	RM:	Second operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS 	Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD = RD + RN * RM
-BN = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-BVS = BVS | BV;
+	RD  = RD + RN * RM
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
+
 **Example:**
 ```
-FMADD R2,R1,R0;
+	FMADD R2,R1,R0 // R2 = R2 + R1 * R0
 ```
 
 \newpage
@@ -609,650 +662,760 @@ FMADD R2,R1,R0;
 **Description:**
 The FMUL instruction multiplies one floating-point register value (RM) with a second floating-point register value (RN) and places the result in register RD. The operation updates the floating-point arithmetic flags.
 
-**Syntax:**		FMUL RD, RN, RM;
+**Syntax:**
+```
+	FMUL RD, RN, RM
+```
+**Operands:**
+```
+	RD			Destination register
+	RN			First operand register
+	RM			Second operand register
+```
 
-RD			Destination register
-RN			First operand register
-RM			Second operand register
+**Flags Updated:**
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
+**Operation:**
+```
+	RD  = RN * RM
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
+```
 
-**Flags Updated:**	BN	Flag
-			BZ 	Flag
-			BV 	Flag
-			BIS 	Flag
-			BUS	Flag
-			BVS	Flag
-
-**Operation:**		RD=RN * RM
-			N = RD[31]
-			if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-			if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-			if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-			if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-			BVS = BVS | BV;
-
-**Example:**		FMUL R2,R1,R0;
+**Example:**
+```
+	FMUL R2,R1,R0   // R2 = R1 + R0
+```
 
 \newpage
 
 ## FMSUB ##
 
-**Description:**
 The FSUB instruction multiplies one floating-point register value (RM) with a second floating-point register value (RN), subtracts the result from a third register(RD) and writes and places the result in register RD. The operation updates the floating-point arithmetic flags.
 
 **Syntax:**
-* FMSUB RD, RN, RM
+```
+	FMSUB RD, RN, RM
+```
 
 **Operands:**
-* RD	Accumulation register for fused multiply sub instruction
-* RN	First operand register
-* RM	Second operand register
-
+```
+	RD	Accumulation register for fused multiply sub instruction
+	RN	First operand register
+	RM	Second operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD = RD - RN * RM
-N = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-BVS = BVS | BV;
+	RD  = RD - RN * RM
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
 
 **Example:**
 ```
-FMSUB R2,R1,R0;
+	FMSUB R2,R1,R0    // R2 = R2 - R1 * R0
 ```
 
 \newpage
 
 ## FSUB ##
 
-**Description:**
 The FSUB instruction subtracts one floating-point register value(RM) from another floating 	point register value(RN) and places the result in a third destination register(RD). The operation updates the floating-point arithmetic flags.
 
 **Syntax:**
-* FSUB RD, RN, RM
+```
+	FSUB RD, RN, RM
+```
 
 **Operands:**
-* RD	Destination register
-* RN	First operand register
-* RM	Second operand register
+```
+	RD	Destination register
+	RN	First operand register
+	RM	Second operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-* BV 	Flag
-* BIS	Flag
-* BUS	Flag
-* BVS	Flag
+```
+	BN
+	BZ
+	BV
+	BIS
+	BUS
+	BVS
+```
 
 **Operation:**
 ```
-RD=RN - RM
-BN = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
-if (UnbiasedExponent(RD) > 127) { BV=1 } else { BV=0}
-if (UbiasedExponent(RD) < -126) { BUS=1 } else { BUS=BUS}
-if (RM or RN == NAN) { BIS=1 } else { BIS=BIS}
-BVS = BVS | BV;
+	RD  = RN - RM
+	BN  = RD[31]
+	BZ  = (RD[30:0]==0)
+	BV  = (UnbiasedExponent(RD) > 127)
+	BUS = (UnbiasedExponent(RD) < -126)
+	BIS = (RM == NAN | RN == NAN)
+	BVS = BVS | BV
 ```
 
 **Example:**
 ```
-FSUB R2,R1,R0;
+	FSUB R2,R1,R0  // R2 = R1 - R0
 ```
 
 \newpage
 
 ## GID ##
 
-**Description:**
-Disables all interrupts
+Disables all interrupts by setting bit[1] of the status register. To safely enable interrupts again, use the GIE instruction.
 
 **Syntax:**
-* GID
+```
+	GID
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-STATUS[1]=1
+	STATUS[1]=1
 ```
 
 **Example:**
 ```
-GID		;
+	GID		// sets STATUS[1]=1
 ```
 
 \newpage
 
 ## GIE ##
 
-**Description:**
 Enables all interrupts in ILAT register, dependent on the per bit settings in the IMASK register.
 
 **Syntax:**
-* GIE
+```
+	GIE
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-STATUS[1]=0
+	STATUS[1]=0
 ```
 
 **Example:**
 ```
-GIE		;
+	GIE		// sets STATUS[1]=0
 ```
 
 \newpage
 
 ## IADD ##
 
-**Description:**
 The IADD instruction adds two 32-bit signed integer operands together and places the result in a third register.
 
 **Syntax:**
-* IADD RD, RN, RM
+```
+	IADD RD, RN, RM
+```
 
 **Operands:**
-* RD:	Destination register
-* RN:	First operand register
-* RM:	Second operand register
+```
+	RD:	Destination register
+	RN:	First operand register
+	RM:	Second operand register
+```
 
 
 **Flags Updated:**
-* BN Flag
-* BZ Flag
-		
+```
+	BN
+	BZ
+```
 
 **Operation:**
 ```
-RD=RN + RM
-BN = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
+	RD =RN + RM
+	BN = RD[31]
+	BZ = (RD[31:0] == 0)
 ```					
 
 **Example:**
 ```
-IADD R2, R2, R0;
+	IADD R2, R1, R0 // R2 = R1 + R0
 ```
 
 \newpage
 
 ## IMADD ##
 
-**Description:**
 The IMADD instruction multiplies one signed integer register value (RM) with a second signed integer register value (RN), adds the result to a third register(RD) and writes and places the result in register RD.
 
 **Syntax:**
-* IMADD RD, RN, RM;
+```
+	IMADD RD, RN, RM
+```
 
 **Operands:**
-* RD:	Accumulation register
-* RN:	First operand register
-* RM:	Second operand register
+```
+	RD:	Accumulation register
+	RN:	First operand register
+	RM:	Second operand register
+```
 
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-			
+```
+	BN
+	BZ
+```
+
 **Operation:**
 ```
-RD = RD + RN * RM
-N = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
+	RD = RD + RN * RM
+	BN = RD[31]
+	BZ = (RD[31:0] == 0)
 ```			
 
 **Example:**
 ```
-IMADD R2, R1, R0
+	IMADD R2, R1, R0   // R2 = R2 + R1 * R0
 ```
 
 \newpage
 
 ## IMSUB ##
 
-**Description:**
 The IMSUB instruction multiplies one signed integer register value (RM)	with a second signed integer register value (RN), subtracts the result to a third register (RD) and writes and places the result in register RD.
 
 **Syntax:**
-* IMSUB RD, RN, RM
+```
+	IMSUB RD, RN, RM
+```
 
 **Operands:**
-* RD:	Accumulation register
-* RN:	First operand register
-* RM:	Second operand register
-
+```
+	RD:	Accumulation register
+	RN:	First operand register
+	RM:	Second operand register
+```
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-					
+```
+	BN
+	BZ
+```
+
 **Operation:**
 ```
-RD = RD - RN * RM
-N = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
+	RD = RD - RN * RM
+	BN = RD[31]
+	BZ = (RD[31:0] == 0)
 ```			
 
 **Example:**
 ```
-IMSUB R2, R1, R0;
+	IMSUB R2, R1, R0 // R2 = R2 - R1 * R0
 ```
 
 \newpage
 
 ## IMUL ##
 
-**Description:**
-The IMUL instruction multiplies two signed integer register value (RN and RM ) and places the result in register RD. 
+The IMUL instruction multiplies two signed integer register value (RN and RM ) and places the result in register RD.
 
 **Syntax:**
-* IMUL RD, RN, RM;
-
+```
+	IMUL RD, RN, RM
+```
 **Operands:**
-* RD:	Destination register
-* RN:	First operand register
-* RM:	Second operand register
+```
+	RD:	Destination register
+	RN:	First operand register
+	RM:	Second operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-
+```
+	BN
+	BZ
+```
 
 **Operation:**
 ```
-RD=RN * RM
-N = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
+	RD = RN * RM
+	BN = RD[31]
+	BZ = (RD[31:0] == 0)
 ```
-		
+
 **Example:**
 ```
-IMUL R2, R1, R0;
+	IMUL R2, R1, R0   // R2 = R1 * R0
 ```
 
 \newpage
 
 ## ISUB ##
 
-**Description:**
-The ISUB instruction subtracts one signed integer register value (RM) from another signed integer register value (RN) and places the result in a third destination register (RD). 
+The ISUB instruction subtracts one signed integer register value (RM) from another signed integer register value (RN) and places the result in a third destination register (RD).
 
 **Syntax:**
-* ISUB RD, RN, RM
+```
+	ISUB RD, RN, RM
+```
 
 **Operands:**
-* RD:	Destination register
-* RN:	First operand register
-* RM:	Second operand register
+```
+	RD:	Destination register
+	RN:	First operand register
+	RM:	Second operand register
+```
 
 **Flags Updated:**
-* BN	Flag
-* BZ 	Flag
-	
+```
+	BN
+	BZ
+```
+
 **Operation:**
 ```
-RD=RN - RM
-BN = RD[31]
-if (RD[30:0]==0) { BZ=1 } else { BZ=0}
+	RD = RN - RM
+	BN = RD[31]
+	BZ = (RD[31:0] == 0)
 ```			
 
 **Example:**
 ```
-ISUB R2, R1, R0;
+	ISUB R2, R1, R0   // R2 = R1 - R0
 ```
 
 \newpage
 
 ## IDLE ##
 
-**Description:**
 The instruction places the core in an idle state. The PC is halted and no more instructions are fetched until an interrupt wakes up the core.
 
 **Syntax:**
-* IDLE
+```
+	IDLE
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-STATUS[0]=0
-while(!ILAT){
-PC=PC;
-}
+	STATUS[0]=0
+	while(!ILAT){
+		PC=PC
+	}
 ```
 **Example:**
 ```
-IDLE	;
+	IDLE	//  puts core in idle state
 ```
 
 \newpage
 
 ## JALR ##
 
-**Description:**
 The register-and-link jump instruction causes an unconditional jump to absolute address contained in Rn. Before jumping to the compute address, the next PC is saved in the link register (LR). The instruction allows for efficient support for subroutines and allows for jumping to any address supported by the architecture.
 
 **Syntax:**
-* JALR RN
+```
+	JALR RN
+```
 
 **Operands:**
-* RN: 	Register with absolute address to jump to.
+```
+	RN: 	Register containing absolute jump address
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-LR = PC;
-PC = RN;
+	LR = PC;
+	PC = RN;
 ```
 
 **Example:**
 ```
-MOV R0,#_labA	;move label into register
-JALR R0		    ;save PC in LR and jump to labA
+	MOV R0,#labA	//move label into register
+	JALR R0		    //save PC in LR and jump to labA
 ```
 
 \newpage
 
 ## JR ##
 
-**Description:**
-The register jump instruction causes an unconditional jump to the absolute address in register RN. This allows for jumping to any address supported by the architecture. 
+The register jump instruction causes an unconditional jump to the absolute address in register RN. This allows for jumping to any address supported by the architecture.
 
 **Syntax:**
-* JR RN;
+```
+	JR RN
+```
 
 **Operands:**
-* RN:	Any one of the general-purpose registers.
+```
+	RN:	Register containing absolute jump address
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
-* PC = RN;
+```
+	PC = RN
+```
 
 **Example:**
 ```
-MOV R0,#_labA	;move label into register
-JR R0;		;jump to _labA
+	MOV R0,#label	//move label into register
+    JR R0;		    //jump to label
 ```
 
 \newpage
 
 ## LDR (DISPLACEMENT) ##
 
-**Description:**
 The displacement mode LDR instruction loads a data from memory to a general-purpose register (RD). The memory address is the sum of the base register value (RN) and an immediate index offset. The base register is not modified by the load operation. The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even RD registers can be used.
 
 **Syntax:**
-* LDRSIZE RD, [RN, #+IMM3]
-* LDRSIZE RD, [RN, #+/-IMM11]
+```
+	LDRSIZE RD, [RN, #+IMM3]
+	LDRSIZE RD, [RN, #+/-IMM11]
+```
 
 **Operands:**
-* SIZE	Byte(B), Half(H), Word(), or Double(D)
-* RD	Destination register for the data loaded from memory.
-* RN	Register containing the base address for the load instruction.
-* IMM3 	Usigned 3 bit offset value left shifted by SIZE.
-* IMM11	Usigned 11 bit offset value left shifted by SIZE.  
-* '-'	Specifies that immediate value should be subtracted from the base. Subtraction only available with IMM11 option
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Destination register for the data loaded from memory.
+	RN	    Register containing the base address for the load instruction.
+	IMM3 	Usigned 3 bit offset value left shifted by SIZE.
+	IMM11	Usigned 11 bit offset value left shifted by SIZE.  
+	'-'	    Specifies that immediate value should be subtracted from the base.
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN +/- IMM << (log2(size_in_bits/8)) ;
-RD=memory[address];
+	address= RN +/- IMM << (log2(size_in_bits/8)) ;
+	RD=memory[address];
 ```
 
 **Example:**
 ```
-LDRB R31,[R2] 	;loads byte
-LDR R0,[R2,#1] 	;loads word
+	LDRB R2,[R1] 	    // R2=mem[R1+0], loads unsigned byte
+	LDRB R2,[R1,#1]     // R2=mem[R1+1], loads unsigned byte
+    LDRH R2,[R1,#1] 	// R2=mem[R1+2], loads unsigned half
+	LDR  R2,[R1,#1] 	// R0=mem[R2+4], loads unsigned word
+	LDRD R2,[R1,#1] 	// R0=mem[R2+8], loads unsigned double
 ```
 
 \newpage
 
 ## LDR (INDEX) ##
 
-**Description:**
 The index mode LDR loads data from memory to a general-purpose register (RD). The memory address is the sum of the base register (RN) and an index register (RM). The base register is not modified by the load operation. The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even RD registers can be used.
 
 **Syntax:**
-* LDRSIZE RD, [RN, +/-RM]
-
+```
+	LDRSIZE RD, [RN, +/-RM]
+```
 **Operands:**
-* SIZE	Byte(B), Half(H), Word(), or Double(D) option
-* RD	Destination register for the word loaded from memory
-* RN	Register containing the base address for the load instruction
-* RM	Register containing the index address to add to the base address
-* '-'   Specifies that RM should be subtracted from RN
-
+```
+	SIZE  Byte(B), Half(H), Word(), or Double(D) option
+	RD	  Destination register for the word loaded from memory
+	RN	  Register containing the base address for the load instruction
+	RM	  Register containing the index address to add to the base address
+	'-'   Specifies that RM should be subtracted from RN
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN +/- RM;
-RD=memory[address];
+	address= RN +/- RM;
+	RD=memory[address];
 ```
+
 **Example:**
 ```
-LDRB R31,[R2,R1] 	;loads byte
-LDR R0,[R2,R1] 	    ;loads word
-```
+	LDRB R2,[R1,R0]     // R2=mem[R1+R0], loads unsigned byte
+    LDRH R2,[R1,R0] 	// R2=mem[R1+R0], loads unsigned half word
+	LDR  R2,[R1,R0] 	// R0=mem[R2+R0], loads unsigned word
+	LDRD R2,[R1,R0] 	// R0=mem[R2+R0], loads unsigned double
+```	
 
 \newpage
 
-## LDR (POSTMODIFY) ##
+## LDR (INDEX-POSTMODIFY) ##
 
-**Description:**
 The post-modify mode LDR loads data from memory to a general purpose register (RD). The memory address used is the value of the base register (RN). After loading the data from memory, the base value register (RN) is updated with the sum of the initial base value and the index value (RM). The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even numbered RD registers can be used.
 
-**Syntax:**		LDRSIZE RD, [RN], +/-RM
+**Syntax:**
+```
+	LDRSIZE RD, [RN], +/-RM
+```
 
 **Operands:**
-* SIZE	Byte(B), Half(H), Word(), or Double(D)
-* RD	Destination register for the word loaded from memory.
-* RN	Register containing the base address for the load instruction.
-* RM	Register containing the index address for the load instruction.
-* '-'	Specifies that RM should be subtracted from RN
-
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Destination register for the word loaded from memory.
+	RN	    Register containing the base address for the load instruction.
+	RM	    Register containing the index address for the load instruction.
+	'-'	    Specifies that RM should be subtracted from RN
+```
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN;
-RD=memory[address];
-RN=RN +/- RM;
+	address = RN;
+	RD      = memory[address];
+	RN      = RN +/- RM;
 ```
 
 **Example:**
 ```
-LDRH R31,[R2],R1 	;loads short, updates R2
-LDRD R0,[R2],R1 	;loads double, updates R2
+	LDRH R31,[R2],R1 	// loads short, updates R2
+	LDRD R0,[R2],R1 	// loads double, updates R2
 ```
 
 \newpage
 
 ## LDR (DISPLACEMENT-POSTMODIFY) ##
 
-**Description:**
 The post-modify mode LDR allows a word to be loaded from memory to a general-purpose register (RD). The memory address used is the value of the base register (RN). After loading the data from memory, the base value register (RN) is updated with the sum/subtraction of the initial base value and the immediate index value (IMM11). The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even RD registers can be used.
 
-**Syntax:**		LDRSIZE RD, [RN], #+/-IMM11
+**Syntax:**
+```
+	LDRSIZE RD, [RN], #+/-IMM11
+```
 
 **Operands:**
-
-* SIZE	Byte(B), Half(H), Word(), or Double(D)
-* RD	Destination register for the data loaded from memory
-* RN	Register containing the base address for the load instruction
-* IMM11	Usigned 11 bit offset value left shifted by 0, 1, 2 or 3 depending on SIZE.
-* '-'	Specifies that RM should be subtracted from RN
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Destination register for the data loaded from memory
+    RN	    Register containing the base address for the load instruction
+	IMM11	Usigned 11 bit offset value left shifted by 0, 1, 2 or 3 depending on SIZE.
+	'-'	    Specifies that RM should be subtracted from RN
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN;
-RD=memory[address];
-RN=RN +/- IMM11 << (log2(size_in_bits/8));
+	address = RN;
+	RD      = memory[address];
+	RN      = RN +/- IMM11 << (log2(size_in_bits/8));
 ```
 
 **Example:**
 ```
-LDRH R31,[R2],#1 	;loads half-word, updates R2 address
-LDRD R0,[R2],#4 	;loads double, updates R2 address
+	LDRH R31,[R2],#1 	// loads half-word, updates R2 address
+	LDRD R0,[R2],#4 	// loads double, updates R2 address
 ```
 
 \newpage
 
 ## LSL ##
 
-**Description:**
 The LSL instruction performs a logical shift left of the RN operand based on  5 bit unsigned value (IMM5 or RM) Zeros fill the bit positions vacated by the shifted RN word and the result is placed in register RD.
 
 **Syntax:**
-* LSL RD, RN, RM
-* LSL RD, RN, #IMM5
+```
+	LSL RD, RN, RM
+	LSL RD, RN, #IMM5
+```
 
 **Operands:**
-* RD	Destination register
-* RN	First operand register
-* RM	Second operand register
-* IMM5  Five bit unsigned immediate value
+```
+	RD	  Destination register
+	RN	  First operand register
+	RM	  Second operand register
+	IMM5  Five bit unsigned immediate value
+```
 
 **Flags Updated:**
-* AN
-* AZ
-* AV
-* AC
+```
+	AN
+	AZ
+	AV
+	AC
+```
 
 **Operation:**
 ```
-RD = RN << OP2
-AN = RD[31]
-AV = 0
-AC = 0
-if (RD[31:0]==0) { AZ=1 } else { AZ=0}
+	RD = RN << RM (or IMM5)
+	AN 	= RD[31]
+	AV 	= 0
+	AC  = 0
+	AZ  = (RD[31:0] == 0)
 ```
 
 **Example:**
 ```
-LSL	R0,R1,R2	;	
-LSL R0,R1,#3	;
+	LSL	R0,R1,R2	// R0 = R1 << R2
+	LSL R0,R1,#3	// R0 = R1 << 3
 ```
 
 \newpage
 
 ## LSR ##
 
-**Description:**
 The LSR instruction performs a logical shift right of the RN operand based on the 5 bi unsigned shift value (IMM5 or RM). Zeros fill the bit positions vacated by the shifted RN word. The result is placed in register RD.
 
 **Syntax:**
-* LSR RD, RN, RM;
-* LSR RD, RN, #IMM5;
+```
+	LSR RD, RN, RM
+	LSR RD, RN, #IMM5
+```
 
 **Syntax:**
-* RD	Destination register
-* RN	First operand register
-* RM	Second operand register
-* IMM5	Five bit unsigned immediate value
+```
+	RD	  Destination register
+	RN	  First operand register
+	RM	  Second operand register
+	IMM5  Five bit unsigned immediate value
+```
+
 
 **Flags Updated:**
-* AN
-* AZ
-* AV
-* AC
+```
+	AN
+	AZ
+	AV
+	AC
+```
+
 
 **Operation:**
 ```
-RD = RN >> OP2
-AN = RD[31]
-AV = 0
-AC = 0
-if (RD[31:0]==0) { AZ=1 } else { AZ=0}
+	RD = RN >> OP2
+	AN 	= RD[31]
+	AV 	= 0
+	AC  = 0
+	AZ  = (RD[31:0] == 0)
 ```
 
 **Example:**
 ```
-LSR	R0,R1,R2	;
-LSR R0,R1,#3	;
+	LSR	R0,R1,R2	// R0 = R1 >> R2
+	LSR R0,R1,#3	// R0 = R1 >> 3
 ```
 
 \newpage
 
 ## MBKPT ##
 
-**Description:**
 The MBKPT instruction sends a halt signal to all cores in the system. The propagation of the MBKPT signal across the chip can be blocked by setting the appropriate edge bits in the MESHCONFIG register.
 
 **Syntax:**
-* MBKPT
+```
+	MBKPT
+```
 
 **Flags Updated:**
-* None
-			
+```
+	None
+```
+
 **Operation:**
 ```
-for (i=0;i<all_cores;i++){
-DEBUGSTATUS[0]=1;
-}
+	for (i=0;i<all_cores;i++){
+		DEBUGSTATUS[0]=1
+	}
 ```
 
 \newpage
 
 ## MOVCOND ##
 
-**Description:**
 The MOV instruction conditionally copies the contents of the source register (RN) into the destination register (RD). The condition codes are the same as those of the conditional branch instructions. A MOV without any condition field moves register RN to register RD regardless of the state of the flags.
 
 **Syntax:**
-* MOVCOND RD, RN
+```
+	MOVCOND RD, RN
+```
 
 **Operands:**
-* COND	One of the 15 condition codes. If COND is " ", copy is unconditional.
-* RD	Destination register
-* RN	Source register for move operation.
+```
+	COND	One of the 15 condition codes. If COND is " ", copy is unconditional.
+	RD	    Destination register
+	RN	    Source register for move operation.
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-IF (COND==TRUE) then
-RD = RN
+	IF (COND==TRUE) then
+	RD = RN
 ```
 
 **Example:**
 ```
-MOVEQ	R2,R0 ;copies R0 to R2 if EQ==TRUE
-MOV		R3,R1 ;copies R1 to R3
+	MOVEQ	R2,R0 // copies R0 to R2 if EQ is TRUE
+	MOV		R3,R1 // copies R1 to R3
 ```
 
 \newpage
@@ -1263,80 +1426,97 @@ MOV		R3,R1 ;copies R1 to R3
 The MOV immediate instruction copies an unsigned immediate constant in the destination register (RD).
 
 **Syntax:**
-* MOV RD, #IMM8;
-* MOV RD, #IMM16;
+```
+	MOV RD, #IMM8
+	MOV RD, #IMM16
+```
 
 **Operands:**
-* RD	Destination register for move operation
-* IMM8	8-Bit unsigned immediate value
-* IMM16	16-Bit unsigned immediate value
+```
+	RD	    Destination register for move operation
+	IMM8	8-Bit unsigned immediate value
+	IMM16	16-Bit unsigned immediate value
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-RD=imm
+	RD=IMM
 ```
 
 **Example:**
 ```
-MOV R0,#25		;Sets R0 to 25
+	MOV R0,#25		// Sets R0 to 25
 ```
 
 \newpage
 
 ## MOVT (IMMEDIATE) ##
 
-**Description:**
 The MOVT immediate instruction copies an unsigned immediate constant in the destination register (RD).
 
 **Syntax:**
-* MOVT RD, #IMM16;
+```
+	MOVT RD, #IMM16;
+```
 
 **Operands:**
-* RD		Destination register for move operation.
-* IMM16		16-Bit unsigned immediate value.
+```
+	RD		Destination register for move operation.
+	IMM16	16-Bit unsigned immediate value.
+```
 
 **Flags Updated:**
-None
+```
+	None
+```
 
 **Operation:**
 ```
-RD=Rd(low) | (IMM16 << 16)
+	RD=Rd(low) | (IMM16 << 16)
 ```
 
 **Example:**
 ```
-MOV R0,%low(0x90000000)		;sets lower 16 bits to value, zeroes out upper bits
-MOVT R0,%high(0x90000000)	;sets upper 16-bits, keeps lower 16 bits intact
+	MOV R0,%low(0x90000000)		// sets lower 16 bits to value, zeroes out upper bits
+	MOVT R0,%high(0x90000000)	// sets upper 16-bits, keeps lower 16 bits intact
 ```
 
 \newpage
 
 ## MOVFS ##
 
-**Description:**
 The MOVFS instruction copies a value from a special core control register to a general-purpose register.
 
 **Syntax:**
-* MOVFS RD, MMR;
+```
+	MOVFS RD, MMR;
+```
 
 **Operands:**
-* MMR		Memory mapped "special" register to copy
-* RD		General-purpose destination register for move operation
+```
+	MMR		Memory mapped "special" register to copy
+	RD		General-purpose destination register for move operation
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
+
 ```
-RD =MMR
+	RD = MMR
 ```
 
 **Example:**
 ```
-MOVFS R0, CONFIG	;copies CONFIG value to R0
+	MOVFS R0, CONFIG	// copies CONFIG value to R0
 ```
 
 \newpage
@@ -1346,266 +1526,314 @@ MOVFS R0, CONFIG	;copies CONFIG value to R0
 **Description:**
 The MOVTS instruction copies a value from a general purpose register file to a core control registers.
 
-**Syntax:**		MOVTS MMR, RN
+**Syntax:**
+```
+	MOVTS MMR, RN
+```
 
 **Operands:**
-* MMR	Special Register to copy value into
-* RN	General-purpose source register for move operation
+```
+	MMR	Special Register to copy value into
+	RN	General-purpose source register for move operation
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-MMR = RN
+	MMR = RN
 ```
 
 **Example:**
 ```
-MOVTS CONFIG,R0	;copies R0 to CONFIG register
+	MOVTS CONFIG,R0	// copies R0 to CONFIG register
 ```
 
 \newpage
 
 ## NOP ##
 
-**Description:**
 The instruction does nothing, but holds an instruction slot.
 
 **Syntax:**
-* NOP
+```
+	NOP
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-no operation
+	No operation
 ```
 
 **Example:**
 ```
-NOP		;
+	NOP		// padding instruction
 ```
 
 \newpage
-
+`
 ## ORR ##
 
-**Description:** The ORR instruction logically 'OR's the RN and RM operands and places the result in register RD.
+The ORR instruction logically 'OR's the RN and RM operands and places the result in register RD.
 
 **Syntax:**
-* ORR RD, RN, RM
+```
+	ORR RD, RN, RM
+```
 
 **Operands:**
-* RD	Destination register 
-* RN	First operand register
-* RM	Second operand register
+```
+	RD	Destination register
+	RN	First operand register
+	RM	Second operand register
+```
 
 **Flags Updated:**
-* AN	Flag
-* AZ 	Flag
-* AV 	Flag
-* AC 	Flag
+```
+	AN
+	AZ
+	AV
+	AC
+```
 
 **Operation:**
 ```
-RD 	= RN | RM
-AN 	= RD[31]
-AV 	= 0
-AC   = 0
-if (RD[31:0]==0) { AZ=1 } else { AZ=0}
+	RD 	= RN | RM
+	AN 	= RD[31]
+	AV 	= 0
+	AC  = 0
+	AZ  = (RD[31:0] == 0)
 ```
 
 **Example:**
 ```
-ORR R2,R1,R0	;
+	ORR R2,R1,R0	// R2 = R1 | R0
 ```
 
 \newpage
 
 ## RTI ##
 
-**Description:**
 The RTI instruction causes the address in the IRET register to be restored to the PC register, a clearing of the corresponding bit in the IPEND register. All actions are carried out as a single atomic operation.
 
-**Syntax:**		RTI;
+**Syntax:**
+```
+	RTI;
+```
 
-**Flags Updated:**	None
+**Flags Updated:**
+```
+	None
+```
 
-**Operation:**		IPEND[i]=0; where i is the current interrupt level being serviced
-			STATUS[1]=0;
-			PC=IRET;
-			<execute instruction at PC>
+**Operation:**
+```
+	IPEND[i]=0; where i is the current interrupt level being serviced
+	STATUS[1]=0;
+	PC=IRET;
+	<execute instruction at PC>
+```
 
-**Example:**		RTI	;
+**Example:**
+```
+	RTI        // PC = IRET
+```
 
 \newpage
 
 ## RTS (alias instruction)
 
-**Description:**
 This is an alias instruction for JR LR. When branching to a subroutine using the BL or JALR instruction, the next instruction PC is saved in register R14 (LR). It is used to return from a subroutine/function in the program.
 
 **Syntax:**
-* RTS;
+```
+	RTS
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-PC=R14;
+	PC = R14;
 ```
 
 **Example:**
 ```
-RTS	;
+	RTS	// sets PC=R14
 ```
 
 \newpage
 
 ## SUB ##
 
-**Description:**
 The SUB instruction subtracts an integer register value (OP2) from an integer value in register (RN). The OP2 operand can be an immediate value (SIMM3 | SIMM11) or register value (RM).
 
 **Syntax:**
-* SUB RD, RN, RM
-* SUB RD, RN, #SIMM3
-* SUB RD, RN, #SIMM11
+```
+	SUB RD, RN, RM
+	SUB RD, RN, #SIMM3
+	SUB RD, RN, #SIMM11
+```
 
 **Operands:**
-* RD: Destination register
-* RN: First operand register
-* RM: Second operand register
-* SIMM3: 3 bit signed immediate value
-* SIMM11: 11 bit signed immediate value
+```
+	RD: Destination register
+	RN: First operand register
+	RM: Second operand register
+	SIMM3: 3 bit signed immediate value
+	SIMM11: 11 bit signed immediate value
+```
 
 **Flags Updated:**
-* AN	Flag
-* AZ	Flag
-* AV	Flag
-* AC	Flag
+```
+	AN
+	AZ
+	AV
+	AC
+```
 
 **Operation:**
 ```
-RD = RN - OP2
-AN = RD[31]
-AC = BORROW
-if (RD[31:0]==0) { AZ=1 } else { AZ=0}
-if ((RD[31] & ~RM[31] & RN[31]) | (RD[31] & ~RM[31] & RN[31]) ) 		{ OV=1 }
-else { OV=0 }
-AVS = AVS | AV
+	RD = RN - OP2
+	AN = RD[31];
+	AC = CARRY OUT;
+	AZ = (RD[31:0] == 0);
+	OV = (( RD[31] & ~RM[31] & ~RN[31] ) | ( ~RD[31] & RM[31] & RN[31] ))
+	AVS = AVS | AV;
 ```
 
 **Example:**
 ```
-SUB R2,R1,R0	;
+	SUB R2,R1,R0	// R2 = R1 + R0
 ```
 
 \newpage
 
 ## STR (DISPLACEMENT) ##
 
-**Description:**
 The displacement mode STR stores a word to memory from a general purpose register (RD). The memory address is the sum of the base register value (RN) and an immediate index offset. The base register is not modified by the store operation. The instruction supports storing of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data stores, only even RD registers can be used.
 
 **Syntax:**
-* STRSIZE RD, [RN, #+IMM3]
-* STRSIZE RD, [RN, #+/-IMM11]
+```
+	STRSIZE RD, [RN, #+IMM3]
+	STRSIZE RD, [RN, #+/-IMM11]
+```
+
 
 **Operands:**
-* SIZE	Byte(B), Half(H), Word(), or Double(D)
-* RD	Destination register for the data loaded from memory.
-* RN	Register containing the base address for the load instruction.
-* IMM3 	Usigned 3 bit offset value left shifted by SIZE.
-* IMM11	Usigned 11 bit offset value left shifted by SIZE.  
-* '-'	Specifies that immediate value should be subtracted from the base. Subtraction only available with IMM11 option
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Destination register for the data loaded from memory.
+	RN	    Register containing the base address for the load instruction.
+	IMM3 	Usigned 3 bit offset value left shifted by SIZE.
+	IMM11	Usigned 11 bit offset value left shifted by SIZE.  
+	'-'	    Specifies that immediate value should be subtracted from the base. 
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN +/- IMM << (log2(size_in_bits/8));
-memory[address]=RD;
+	address= RN +/- IMM << (log2(size_in_bits/8));
+	memory[address]=RD;
 ```
 
 **Example:**
 ```
-STRB	R31,[R2,#1]	  ;stores byte to addr in R2
-STR 	R0,[R2,#0x4]  ;stores word to addr in R2
+	STRB	R31,[R2,#1]	  // stores R31 byte to addr in R2
+	STR 	R0,[R2,#0x4]  // stores R0 word to addr in R2
 ```
 
 ## STR (INDEX) ##
 
-**Description:**
 The index mode STR stores a word to memory from a general-purpose register (RD). The memory address is the sum of a base register (RN) and an index register.(RM) The base register is not modified by the store operation. The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even numbered RD registers can be used.
 
 **Syntax:**
-STRSIZE RD, [RN, +/-RM]
+```
+	STRSIZE RD, [RN, +/-RM]
+```
 
 **Operands:**
-* SIZE	Byte(B), Half(H), Word(), or Double(D)
-* RD	Destination register for the data loaded from memory.
-* RN	Register containing the base address for the load instruction.
-* RN	Register containing the base address for the store instruction.
-* '-'	Specifies that immediate value should be subtracted from the base. Subtraction only available with IMM11 option
-
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Destination register for the data loaded from memory.
+	RN	    Register containing the base address for the load instruction.
+	RM	    Register containing the index address for the store instruction.
+	'-'	    Specifies that immediate value should be subtracted from the base. 
+```
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN +/- RM;
-memory[address]=RD;
+	address= RN +/- RM;
+	memory[address]=RD;
 ```
 
 **Example:**
 ```
-STRB	R31,[R2,R1]	;stores byte to addr in R2
-STR 	R0,[R2,R1]	;stores word to addr in R2
+	STRB	R31,[R2,R1]	// stores byte to addr in R2
+	STR 	R0,[R2,R1]	// stores word to addr in R2
 ```
 
 \newpage
 
 ## STR (POSTMODIFY) ##
 
-**Description:**
 The postmodify STR instruction stores a word in memory from a general purpose register (RD). The memory address used is the value of the base register (RN). After storing the the data in memory, the base value register (RN) is updated with the sum of the initial base value(RN) and the index value in (RM). The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even RD registers can be used.
 
 **Syntax:**
-* STRSIZE RD, [RN], +/-RM
+```
+	STRSIZE RD, [RN], +/-RM
+```
 
 **Operands:**
-* SIZE	Byte(B), Half(H), Word(), or Double(D)
-* RD	Source register for the word stored to memory.
-* RN	Register containing the base address for the store instruction.
-* RM	Register containing the index address for the store instruction.
-* -		Specifies that RM should be subtracted from RN
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Source register for the word stored to memory.
+	RN	    Register containing the base address for the store instruction.
+	RM	    Register containing the index address for the store instruction.
+	'-'		Specifies that RM should be subtracted from RN
+```
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-address= RN;
-memory[address]=RD;
-RN=RN +/- RM;
+	address= RN;
+	memory[address]=RD;
+	RN=RN +/- RM;
 ```
 
 **Example:**
 ```
-STRH	R31,[R2], R1	;stores half word to addr in R2
-STRD	R0,[R2], R3	;stores double to addr in R2
+	STRH	R31,[R2], R1  // stores half word to addr in R2
+	STRD	R0,[R2], R3	  // stores double to addr in R2
 ```
 
 \newpage
 
 ## STR (DISPLACEMENT-POSTMODIFY) ##
 
-**Description:**
 The postmodify STR instruction stores a word in memory from a general purpose register (RD). The memory address used is the value of the base register (RN). After storing the the data in memory, the base value 	register (RN) is updated with the sum of the initial base value(RN) 	and the index value in (IMM11). The instruction supports loading of byte, short, word, and double data. Data must be aligned in memory according to the size of the data. For double data loads, only even RD registers can 	be used.
 
 **Syntax:**
@@ -1639,42 +1867,51 @@ STRD	R0,[R2],#1	;stores double to addr in R2
 
 ## SYNC ##
 
-**Description:**
-The SYNC instruction sends an interrupt to all processors SYNC input signals connected to the core asserting the SYNC. 
+The SYNC instruction sends an interrupt to all processors SYNC input signals connected to the core asserting the SYNC.
 
 **Syntax:**
-* SYNC
-
+```
+	SYNC
+```
 
 **Flags Updated:**
-* None
-			
+```
+	None
+```
+
 **Operation:**
-* Sets the ILAT[0] of all cores within a work group to “1”.
+```
+	Sets the ILAT[0] of all cores within a work group to “1”.
+```
 
 \newpage
 
 ## TRAP ##
 
-**Description:**
 The TRAP instruction causes the processor to halt and wait for external inputs. The immediate field within the instruction opcode is not processed by the hardware but can be used by software such as a debugger or operating system to find out the reason for the TRAP instruction.
 
 **Syntax:**
-* TRAP IMM5
+```
+	TRAP IMM5
+```
 
 **Operands:**
-* IMM5		An unsigned 5 bit value indicating what action to take.
+```
+	IMM5		An unsigned 5 bit value indicating what action to take.
+```
 
 **Codes:**
-* 0-2 	= reserved
-* 3 	= program exit indicator
-* 4 	= indicates success, can be used to indicate “test passed”
-* 5 	= indicates assertion, test “failed”
-* 6 	= reserved
-* 7 	= initiates system call
+
+|IMM5   |  Description                                             |
+|-------|----------------------------------------------------------|
+| 0-2 	| reserved                                                 |
+| 3 	| program exit indicator                                   |
+| 4 	| indicates success, can be used to indicate “test passed” |
+| 5 	| indicates assertion, test “failed”                       |
+| 6 	| reserved                                                 |
+| 7 	| initiates system call                                    |
 
 In the case of TRAP 7, a system call is initiated. In this case, a sub argument needs to be passed in R3 indicating what further action to take, based on the following table. Arguments to the system calls are passed in Register R0-R2.
-
 
 |Function     |  R0               |  R1            |  R2           | R3 |
 |-------------|-------------------|----------------|---------------|----|
@@ -1688,74 +1925,89 @@ In the case of TRAP 7, a system call is initiated. In this case, a sub argument 
 | Stat        | File Descriptor   | Status Pointer | 0             | 15 |
 
 **Flags Updated:**
-* None
+```
+	None
+```
 
 **Operation:**
 ```
-Halts processor; //puts it in debug halt mode
+	Halts processor //puts it in debug halt mode
 ```
 **Example:**
 ```
-TRAP 0	;Halt processor to prepare for write
+	TRAP 0	// Halt processor to prepare for write
 ```
 
 \newpage
 
 ## TESTSET ##
 
-**Description:**
 The TESTSET instruction does an atomic “test-if-not-zero”, then conditionally writes a value to any memory location within the Epiphany architecture. The absolute address used for the test and set instruction must be located within the on-chip local memory and must be greater than 0x00100000. The instruction tests the value of a specific memory location and if that value is zero, writes in a new value from the local register file. If the value at the memory location was already set to a non-zero value, then the value is returned to the register file, but the memory location is left unmodified.
 
 **Syntax:**
-* TESTSET RD, [RN, +/-RM];
+```
+	TESTSET RD, [RN, +/-RM];
+```
+
+**Operands:**
+```
+	SIZE	Byte(B), Half(H), Word(), or Double(D)
+	RD	    Source register for the word stored to memory.
+	RN	    Register containing the base address for the store instruction.
+	RM	    Register containing the index address for the store instruction.
+	'-'		Specifies that RM should be subtracted from RN
+```
 
 **Flags Updated:**
-* None
-			
+```
+	None
+```
 
 **Operation:**
 ```
-if ([RN+/-RM]) {
-  RD= ([RN+/-RM])
-}
-else{
- ([RN+/-RM])=RD
- RD=0;	
-}
+	if ([RN+/-RM]) {
+		RD= ([RN+/-RM])
+	}
+	else{
+	([RN+/-RM])=RD
+	RD=0;
+	}
 ```
-	
+
 **Example:**
 ```
 /*example of trying to lock on value in memory*/
-_loop: MOV R2, R3          ; value to write
-TESTSET R2, [R0, R1]; test-set
-SUB R2, R2, #0      ; check result
-BNE_loop            ; keep trying
+loop: MOV R2, R3          // value to write
+	  TESTSET R2, [R0, R1]// test-set
+      SUB R2, R2, #0      // check result
+     BNE loop             // keep trying
 ```
 
 \newpage
 
 ## WAND ##
 
-**Description:**
 The WAND instruction sets flag bit [3] in the STATUS register and moves	on to the next instruction. When all cores in a group have set their respective wand bits, then an interrupt is generated on the WAND interrupt line. The instruction can be used to create fast distributed barriers.
 
 **Syntax:**
-* WAND
+```
+	WAND
+```
 
 **Flags Updated:**
-* None
-			
+```
+	None
+```
+
 **Operation:**
 ```
-STATUS[3]=1;
+	STATUS[3]=1;
 ```
 
 **Example:**
 ```
-WAND;
-IDLE; /*wait for every core in the group to execute WAND*/
+	WAND;
+	IDLE; /*wait for every core in the group to execute WAND*/
 ```
 
 \newpage
-
