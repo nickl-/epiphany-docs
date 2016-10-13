@@ -1,4 +1,5 @@
-Appendix D: Epiphany Application Binary interface (EABI)
+
+Appendix C: Application Binary interface (EABI)
 ============================================================================
 
 This chapter is intended for library developers and users who develop custom assembly routines that can be called from the Epiphany C-compiler. The Epiphany ABI (EABI) is an agreement between developers that ensures interoperability between different libraries. The EABI defines a common procedure call standard and restrictions on data types and alignment.
@@ -18,23 +19,23 @@ Conformance to this standard requires that:
 
 Table 8.1 shows the fundamental data types supported by the Epiphany architecture. Memory can be considered as an array of bytes, with each byte separately addressable by the software. The memory layout accepted is little-endian data. The least significant bit of an object is always bit 0. Words are defined as 32 bits, half-words as 16-bits and double words as 64-bits.
 
-**Table 8.1: Native Types**
+Table: Native Types
 
-| C-Type             |Machine Type         |Bytes| Restriction                 |
-|--------------------|---------------------|-----|-----------------------------|
-| char               |Signed byte          | 1   |                             |
-| unsigned char      |Unsigned byte        | 1   |                             | 
-| signed char        |Signed byte          | 1   |                             |
-| signed short       |Signed half-word     | 2   | Must be half-word aligned   |
-| unsigned short     |Unsigned half-word   | 2   | Must be half-word aligned   |
-| signed int         |Signed word          | 4   | Must be word aligned        |
-| unsigned int       |Unsigned word        | 4   | Must be word aligned        |
-| signed long        |Signed word          | 4   | Must be word aligned        |
-| unsignedlong       |Unsigned word        | 4   | Must be word aligned        |
-| signed long   long |Signed double word   | 8   | Must be double-word aligned |
-| unsigned long long |Unsigned double word | 8   | Must be double-word aligned |
-| float              |32b IEEE754          | 4   | Must be word aligned        |
-| double             |64b IEEE754          | 8   | Must be double-word aligned |
+| C-Type             |Machine Type        |Bytes| Restriction                 |
+|--------------------|--------------------|-----|-----------------------------|
+| char               |Signed byte         | 1   |                             |
+| unsigned char      |Unsigned byte       | 1   |                             |
+| signed char        |Signed byte         | 1   |                             |
+| signed short       |Signed half-word    | 2   | Must be half-word aligned   |
+| unsigned short     |Unsigned half-word  | 2   | Must be half-word aligned   |
+| signed int         |Signed word         | 4   | Must be word aligned        |
+| unsigned int       |Unsigned word       | 4   | Must be word aligned        |
+| signed long        |Signed word         | 4   | Must be word aligned        |
+| unsigned long      |Unsigned word       | 4   | Must be word aligned        |
+| signed long   long |Signed double word  | 8   | Must be double-word aligned |
+| unsigned long long |Unsigned double word| 8   | Must be double-word aligned |
+| float              |32b IEEE754         | 4   | Must be word aligned        |
+| double             |64b IEEE754         | 8   | Must be double-word aligned |
 
 ## Composite Types
 
@@ -59,7 +60,7 @@ Fundamental types larger than 32 bits may be passed as parameters to, or returne
 
 The base standard provides for passing arguments in core registers (r0-r3) and on the stack. For subroutines that take a small number of parameters, only registers are used, greatly reducing procedure call overhead.
 
-**Table 8.2: Register Use Convention**
+Table: Register Use Convention
 
 | Name   | Alias| Role                               | Saved By |
 |--------|------|------------------------------------|----------|
@@ -79,7 +80,7 @@ The base standard provides for passing arguments in core registers (r0-r3) and o
 | R13    | SP   | Stack pointer                      | n/a      |
 | R14    | LR   | Link register                      | Callee   |
 | R15    | FP   | Frame pointer                      | Callee   |
-| R27:16 | FP   | Genral Use                         | Caller   |
+| R27:16 | FP   | General Use                        | Caller   |
 | R31:28 | FP   | Reserved for constants             | n/a      |
 | R63:32 | FP   | Reserved for constants             | Caller   |
 

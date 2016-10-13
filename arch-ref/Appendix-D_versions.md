@@ -1,11 +1,12 @@
-Appendix E: Architectire Versions
+
+Appendix D: Architecture Versions
 ==============================================================================
 
 This chapter documents the differences between different versions of the Epiphany architecture.
 
 ## Epiphany-III
 
-First product
+First released version
 
 ## Epiphany-IV
 
@@ -19,11 +20,13 @@ The following provides a summary of all changes.
 |                     | 0001=swi             |  1110=swi                      |
 |                     | 0010=unaligned       |  1101=unaligned                |
 |                     | 0101=illegal access  |  1100=illegal access           |
-|                     | 0011=fpu exception   |  0111=fpu excpetion            |
+|                     | 0011=fpu exception   |  0111=fpu exception            |
 |   CONFIG[11:8]      | N/A                  |  0011=Enables 64 bit counter   |
 |   MESHCONFIG[7:4]   | 1111=N/A             |  1111=Counts any access        |
 
 ## Epiphany-V
+
+All working Epiphany-III/IV features supported. New instructions and operating modes for 64-bit operations.
 
 TBD
 

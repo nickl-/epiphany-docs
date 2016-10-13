@@ -1,5 +1,5 @@
 
-Chapter 4: Processor
+Chapter 4: Processor Node
 ==========================================================================
 
 ## Processor Node Overview

@@ -1,3 +1,4 @@
+
 Appendix B: Register Listing
 ===============================
 
@@ -5,7 +6,7 @@ Appendix B: Register Listing
 
 This appendix contains detailed descriptions for all the registers within the Epiphany core architecture. Complete 32 bit addresses are constructed by combining the local 20 bit addresses shown in the tables with the MSB aligned 12 bit core ID.
 
-Table 7.1: Register Summary
+Table: Register Summary
 
 | Local Address     | Register Name |  Access | Comment                     |
 |-------------------|---------------|---------|-----------------------------|
@@ -513,6 +514,6 @@ The register reflects the state of the processor and should always be saved on e
 |       |             | 0000=no exception                          |
 |[32:20]| RESERVED    | N/A                                        |
 
-----
-Copyright 2008-2016 Adapteva Inc. All rights reserved.
-(See LICENSE.md for details)
+\newpage
+
+
