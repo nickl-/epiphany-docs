@@ -1,0 +1,3 @@
+#!/bin/bash
+convert -density 300 epiphany.svg         epiphany.png
+convert -density 300 array_of_arrays.svg array_of_arrays.png
